@@ -1,0 +1,297 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Great+Vibes&display=swap');
+
+:root {
+  /* Romantic Color Palette - Regency Era Inspired */
+  --burgundy: #722F37;
+  --burgundy-dark: #4a1f24;
+  --burgundy-light: #8c3b44;
+  --gold: #D4AF37;
+  --gold-light: #e8cc6e;
+  --gold-dark: #b8962e;
+  --cream: #FFFEF7;
+  --cream-dark: #f5f0e1;
+  --rose: #E8D5D5;
+  --rose-dark: #d4b8b8;
+  --charcoal: #2C2C2C;
+  --charcoal-light: #404040;
+
+  /* Typography */
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-body: 'Cormorant Garamond', Georgia, serif;
+  --font-script: 'Great Vibes', cursive;
+
+  /* Spacing */
+  --section-padding: clamp(4rem, 10vw, 8rem);
+
+  /* Transitions */
+  --transition-slow: 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-medium: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-fast: 0.2s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* Dreamy smooth scroll */
+  scroll-padding-top: 0;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--cream);
+  color: var(--charcoal);
+  line-height: 1.8;
+  font-size: 18px;
+  overflow-x: hidden;
+  /* Dreamy fade in */
+  animation: dreamyFadeIn 1s ease-out;
+}
+
+@keyframes dreamyFadeIn {
+  from {
+    opacity: 0;
+    filter: blur(5px);
+  }
+
+  to {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+/* Main content flow */
+main {
+  position: relative;
+  background: linear-gradient(180deg,
+      var(--cream) 0%,
+      var(--rose) 25%,
+      var(--cream-dark) 50%,
+      var(--rose) 75%,
+      var(--cream) 100%);
+  background-size: 100% 500vh;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--cream-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--burgundy);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--burgundy-dark);
+}
+
+/* Typography Classes */
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+.font-body {
+  font-family: var(--font-body);
+}
+
+.font-script {
+  font-family: var(--font-script);
+}
+
+/* Gold Gradient Text */
+.text-gold-gradient {
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 50%, var(--gold) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Section styling */
+section {
+  position: relative;
+  padding: var(--section-padding) 5%;
+}
+
+/* Decorative Elements */
+.ornament {
+  display: block;
+  width: 200px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  margin: 2rem auto;
+  position: relative;
+}
+
+.ornament::before {
+  content: '❦';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--gold);
+  font-size: 1.5rem;
+  background: var(--cream);
+  padding: 0 1rem;
+}
+
+/* Button Styles */
+.btn-primary {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  background: linear-gradient(135deg, var(--burgundy) 0%, var(--burgundy-dark) 100%);
+  color: var(--cream);
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: var(--transition-medium);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: var(--transition-slow);
+}
+
+.btn-primary:hover::before {
+  left: 100%;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(114, 47, 55, 0.3);
+}
+
+/* Vintage Paper Texture */
+.paper-texture {
+  background-color: var(--cream);
+  background-image:
+    radial-gradient(ellipse at 30% 20%, rgba(212, 175, 55, 0.03) 0%, transparent 50%),
+    radial-gradient(ellipse at 70% 80%, rgba(114, 47, 55, 0.02) 0%, transparent 50%);
+}
+
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Responsive Typography */
+h1 {
+  font-family: var(--font-serif);
+  font-size: clamp(2.5rem, 8vw, 5rem);
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+h3 {
+  font-family: var(--font-serif);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 500;
+}
+
+p {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  line-height: 1.9;
+}
+
+/* Animations */
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulse-glow {
+
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+  }
+
+  50% {
+    box-shadow: 0 0 40px rgba(212, 175, 55, 0.6);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Utility Classes */
+.text-center {
+  text-align: center;
+}
+
+.text-burgundy {
+  color: var(--burgundy);
+}
+
+.text-gold {
+  color: var(--gold);
+}
+
+.mb-1 {
+  margin-bottom: 0.5rem;
+}
+
+.mb-2 {
+  margin-bottom: 1rem;
+}
+
+.mb-3 {
+  margin-bottom: 1.5rem;
+}
+
+.mb-4 {
+  margin-bottom: 2rem;
+}
+
+.mt-4 {
+  margin-top: 2rem;
+}
+
+/* Selection */
+::selection {
+  background: var(--rose);
+  color: var(--burgundy);
+}

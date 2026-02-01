@@ -1,0 +1,395 @@
+.section {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 6rem 5%;
+    /* Smooth flowing gradient between sections */
+    margin-top: -15vh;
+    padding-top: 20vh;
+}
+
+.section:first-of-type {
+    margin-top: 0;
+    padding-top: 6rem;
+}
+
+/* Background */
+.background {
+    position: absolute;
+    inset: -15%;
+    z-index: 0;
+}
+
+/* ===== DREAMY OVERLAY - Soft & Ethereal ===== */
+.backgroundOverlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+}
+
+/* Dark Theme - Dreamy */
+.section.dark .backgroundOverlay {
+    background:
+        /* Soft top fade for flow */
+        linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, transparent 20%),
+        /* Bottom fade into next section */
+        linear-gradient(0deg, rgba(0, 0, 0, 0.5) 0%, transparent 25%),
+        /* Dreamy center glow */
+        radial-gradient(ellipse 100% 80% at 50% 50%, transparent 30%, rgba(114, 47, 55, 0.35) 100%),
+        /* Soft romantic tint */
+        linear-gradient(135deg, rgba(114, 47, 55, 0.2) 0%, rgba(44, 44, 44, 0.25) 100%);
+}
+
+/* Light Theme - Ethereal */
+.section.light .backgroundOverlay {
+    background:
+        /* Soft top fade */
+        linear-gradient(180deg, rgba(255, 254, 247, 0.7) 0%, transparent 20%),
+        /* Bottom fade */
+        linear-gradient(0deg, rgba(255, 254, 247, 0.6) 0%, transparent 25%),
+        /* Dreamy center */
+        radial-gradient(ellipse 100% 100% at 50% 50%, transparent 40%, rgba(232, 213, 213, 0.4) 100%),
+        /* Soft base */
+        linear-gradient(135deg, rgba(255, 254, 247, 0.3) 0%, rgba(232, 213, 213, 0.25) 100%);
+}
+
+/* Content Layout */
+.content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4rem;
+    max-width: 1400px;
+    width: 100%;
+}
+
+.section.left .content {
+    flex-direction: row;
+}
+
+.section.right .content {
+    flex-direction: row-reverse;
+}
+
+.section.center .content {
+    flex-direction: column;
+    text-align: center;
+}
+
+/* Media Container - Dreamy */
+.mediaContainer {
+    flex: 0 0 auto;
+    position: relative;
+}
+
+/* Soft glow behind media */
+.mediaContainer::before {
+    content: '';
+    position: absolute;
+    inset: -40px;
+    background: radial-gradient(ellipse at center, rgba(212, 175, 55, 0.15) 0%, transparent 70%);
+    z-index: -1;
+    filter: blur(20px);
+}
+
+/* Subtle decorative element */
+.mediaContainer::after {
+    content: '❦';
+    position: absolute;
+    top: -35px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2rem;
+    color: var(--gold);
+    opacity: 0.6;
+    z-index: 5;
+    text-shadow: 0 0 30px rgba(212, 175, 55, 0.5);
+}
+
+/* === PORTRAIT FRAME === */
+.mediaFrame {
+    position: relative;
+    width: clamp(280px, 32vw, 420px);
+    aspect-ratio: 3/4;
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.9) 0%, rgba(181, 143, 23, 0.9) 100%);
+    padding: 8px;
+    box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.35),
+        0 0 100px rgba(212, 175, 55, 0.2);
+    transform: rotate(-1.5deg);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.section.right .mediaFrame {
+    transform: rotate(1.5deg);
+}
+
+.mediaFrame:hover {
+    transform: rotate(0deg) scale(1.03);
+    box-shadow:
+        0 40px 100px rgba(0, 0, 0, 0.4),
+        0 0 120px rgba(212, 175, 55, 0.3);
+}
+
+/* Inner border */
+.mediaFrame::before {
+    content: '';
+    position: absolute;
+    inset: 12px;
+    border: 1px solid rgba(212, 175, 55, 0.4);
+    pointer-events: none;
+    z-index: 3;
+}
+
+/* Dreamy soft vignette */
+.mediaFrame::after {
+    content: '';
+    position: absolute;
+    inset: 8px;
+    background: radial-gradient(ellipse at center, transparent 65%, rgba(114, 47, 55, 0.1) 100%);
+    pointer-events: none;
+    z-index: 2;
+}
+
+.media {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: contrast(1.02) brightness(1.02);
+}
+
+.frameOrnament,
+.frameOrnamentBottom {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.5rem;
+    color: var(--burgundy);
+    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+    padding: 0 0.8rem;
+    z-index: 4;
+}
+
+.frameOrnament {
+    top: -0.8rem;
+}
+
+.frameOrnamentBottom {
+    bottom: -0.8rem;
+}
+
+/* === LANDSCAPE PHOTO FRAME === */
+.section.landscapePhoto .mediaFrame {
+    width: clamp(350px, 50vw, 600px);
+    aspect-ratio: 16/10;
+    transform: rotate(0.8deg);
+}
+
+.section.landscapePhoto.right .mediaFrame {
+    transform: rotate(-0.8deg);
+}
+
+.section.landscapePhoto .mediaFrame:hover {
+    transform: rotate(0deg) scale(1.03);
+}
+
+/* Text Content - Ethereal Glass */
+.textContent {
+    flex: 1;
+    max-width: 480px;
+    background: rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    padding: 2.5rem;
+    border: 1px solid rgba(212, 175, 55, 0.15);
+    border-radius: 4px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+}
+
+.section.light .textContent {
+    background: rgba(255, 255, 255, 0.25);
+    border: 1px solid rgba(114, 47, 55, 0.1);
+}
+
+.section.center .textContent {
+    max-width: 800px;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.title {
+    font-family: var(--font-script);
+    font-size: clamp(2.5rem, 5.5vw, 4rem);
+    font-weight: 400;
+    margin-bottom: 1.25rem;
+    line-height: 1.2;
+    text-shadow: 2px 2px 20px rgba(0, 0, 0, 0.3);
+}
+
+.section.dark .title {
+    color: var(--gold);
+}
+
+.section.light .title {
+    color: var(--burgundy);
+}
+
+.subtitle {
+    font-family: var(--font-body);
+    font-size: clamp(1rem, 1.8vw, 1.25rem);
+    line-height: 2;
+    margin-bottom: 1.25rem;
+    opacity: 0.95;
+}
+
+.section.dark .subtitle {
+    color: var(--cream);
+}
+
+.section.light .subtitle {
+    color: var(--charcoal);
+}
+
+.ornament {
+    font-size: 2rem;
+    margin: 1.25rem 0;
+    opacity: 0.7;
+}
+
+.section.dark .ornament {
+    color: var(--gold);
+}
+
+.section.light .ornament {
+    color: var(--burgundy);
+}
+
+.quote {
+    font-family: var(--font-body);
+    font-size: clamp(0.95rem, 1.6vw, 1.1rem);
+    font-style: italic;
+    line-height: 1.9;
+    margin: 0;
+    opacity: 0.9;
+}
+
+.section.dark .quote {
+    color: rgba(255, 254, 247, 0.9);
+}
+
+.section.light .quote {
+    color: var(--charcoal-light);
+}
+
+.quoteAuthor {
+    display: block;
+    font-style: normal;
+    margin-top: 0.75rem;
+    font-size: 0.85em;
+    letter-spacing: 0.06em;
+    opacity: 0.8;
+}
+
+.section.dark .quoteAuthor {
+    color: var(--gold);
+}
+
+.section.light .quoteAuthor {
+    color: var(--burgundy);
+}
+
+/* === VIDEO LANDSCAPE === */
+.section.landscape .mediaFrame {
+    width: clamp(350px, 50vw, 650px);
+    aspect-ratio: 16/9;
+    transform: rotate(0.5deg);
+}
+
+.section.landscape.right .mediaFrame {
+    transform: rotate(-0.5deg);
+}
+
+.section.landscape .mediaFrame:hover {
+    transform: rotate(0deg) scale(1.02);
+}
+
+.section.landscape .media {
+    filter: none;
+}
+
+/* Responsive */
+@media (max-width: 1100px) {
+    .section {
+        margin-top: -10vh;
+        padding-top: 15vh;
+    }
+
+    .content {
+        flex-direction: column !important;
+        gap: 2.5rem;
+        text-align: center;
+    }
+
+    .section.left .mediaFrame,
+    .section.right .mediaFrame,
+    .section.landscapePhoto .mediaFrame,
+    .section.landscapePhoto.right .mediaFrame,
+    .section.landscape .mediaFrame,
+    .section.landscape.right .mediaFrame {
+        transform: none;
+    }
+
+    .mediaFrame {
+        width: clamp(240px, 50vw, 340px);
+    }
+
+    .section.landscapePhoto .mediaFrame {
+        width: clamp(300px, 75vw, 500px);
+    }
+
+    .section.landscape .mediaFrame {
+        width: clamp(300px, 85vw, 600px);
+    }
+
+    .textContent {
+        max-width: 100%;
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .section {
+        padding: 4rem 4%;
+        margin-top: -8vh;
+        padding-top: 12vh;
+    }
+
+    .mediaFrame {
+        width: 75vw;
+        max-width: 280px;
+    }
+
+    .section.landscapePhoto .mediaFrame {
+        width: 90vw;
+        max-width: none;
+    }
+
+    .section.landscape .mediaFrame {
+        width: 95vw;
+        max-width: none;
+    }
+
+    .mediaContainer::after {
+        font-size: 1.5rem;
+        top: -25px;
+    }
+
+    .textContent {
+        padding: 1.2rem;
+    }
+}

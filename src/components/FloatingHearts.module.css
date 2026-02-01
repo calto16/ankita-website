@@ -1,0 +1,55 @@
+.container {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9999;
+    overflow: hidden;
+}
+
+.particle {
+    position: absolute;
+    bottom: -50px;
+    animation: floatUp linear infinite;
+    text-shadow: 0 0 10px currentColor;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.7;
+    }
+
+    90% {
+        opacity: 0.7;
+    }
+
+    100% {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Hearts - romantic red/pink */
+.heart {
+    color: #d45264;
+}
+
+/* Sparkles - golden shimmer */
+.sparkle {
+    color: #d4af37;
+}
+
+/* Stars - cream/white */
+.star {
+    color: #fffef7;
+}
+
+@media (max-width: 768px) {
+    .particle {
+        text-shadow: none;
+    }
+}

@@ -1,0 +1,112 @@
+.footer {
+    background: linear-gradient(180deg, var(--cream) 0%, var(--cream-dark) 50%, var(--rose) 100%);
+    padding: var(--section-padding) 5%;
+    text-align: center;
+    position: relative;
+}
+
+.content {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.hearts {
+    font-size: 4rem;
+    color: var(--burgundy);
+    margin-bottom: 1.5rem;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+.title {
+    font-family: var(--font-script);
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    color: var(--burgundy);
+    font-weight: 400;
+    margin-bottom: 1rem;
+}
+
+.ornament {
+    font-size: 2rem;
+    color: var(--gold);
+    margin: 1.5rem 0;
+}
+
+.message {
+    font-family: var(--font-body);
+    font-size: 1.5rem;
+    color: var(--charcoal);
+    font-style: italic;
+    margin-bottom: 1rem;
+}
+
+.dedication {
+    font-family: var(--font-serif);
+    font-size: 1.25rem;
+    color: var(--burgundy);
+    letter-spacing: 0.1em;
+}
+
+.divider {
+    width: 200px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    margin: 3rem auto;
+}
+
+.quote {
+    font-family: var(--font-body);
+    font-size: 1.125rem;
+    font-style: italic;
+    color: var(--charcoal-light);
+    line-height: 1.8;
+    max-width: 600px;
+    margin: 0 auto 1rem;
+}
+
+.attribution {
+    font-family: var(--font-serif);
+    font-size: 1rem;
+    color: var(--gold-dark);
+    letter-spacing: 0.05em;
+}
+
+.finalHearts {
+    font-size: 2rem;
+    color: var(--burgundy);
+    margin-top: 3rem;
+    letter-spacing: 1rem;
+}
+
+.copyright {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.copyright p {
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    color: var(--charcoal-light);
+}
+
+@media (max-width: 768px) {
+    .hearts {
+        font-size: 3rem;
+    }
+
+    .message {
+        font-size: 1.25rem;
+    }
+}
